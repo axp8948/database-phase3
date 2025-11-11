@@ -1,19 +1,20 @@
-Reset and global background
+
 body, html {
-  height: 100%;
   margin: 0;
+  padding: 0;
+  height: auto;              
+  min-height: 100vh;         
   background: #e7eef6;
   font-family: "Segoe UI", Arial, sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;            
 }
+
 
 /* Center container */
 .container {
   width: 90%;
   max-width: 700px;
-  background: #ffffff;
+  background: #4f4e4e;
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -22,19 +23,24 @@ body, html {
 
 /* Header styling */
 h1 {
-  color: #1e3a8a;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  font-size: 3rem;
+}
+h3 {
+  color: #ffffff;
   margin-bottom: 1.5rem;
   font-size: 1.8rem;
 }
 
 /* Section cards */
 .card {
-  background: #f9fafb;
+  background: #499aec;
   border: 1px solid #d1d5db;
   padding: 1.2rem;
   margin: 1rem 0;
   border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 6px rgba(167, 162, 162, 0.05);
   text-align: left;
 }
 
@@ -53,7 +59,7 @@ input {
   width: calc(50% - 14px);
   border: 1.5px solid #2563eb;      
   background-color: #f0f7ff;        
-  color: #1e3a8a;                   
+  color: #070f24;                   
 }
 
 /* Buttons */
@@ -83,7 +89,7 @@ button:hover {
 }
 
 .item-card {
-  background: #25235f;
+  background: #363547;
   padding: 10px;
   margin: 10px 0;
   border-radius: 8px;
