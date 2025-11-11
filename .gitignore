@@ -1,0 +1,128 @@
+# =========================
+# Node.js Backend
+# =========================
+
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage reports
+coverage/
+
+# Build output
+dist/
+build/
+.cache/
+.nyc_output/
+
+# Optional npm cache
+.npm
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# =========================
+# React Frontend (with Tailwind)
+# =========================
+
+# Dependencies
+frontend/node_modules/
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+
+# Build output
+frontend/build/
+frontend/dist/
+frontend/.cache/
+
+# IDE settings
+.vscode/
+.idea/
+*.swp
+
+# Testing
+frontend/coverage/
+
+# Tailwind cache
+*.css.map
+*.tsbuildinfo
+
+# =========================
+# SQL Database / ORM
+# =========================
+
+# Local database files (if using SQLite)
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+
+# ORM-generated files (e.g., Prisma, Sequelize)
+prisma/dev.db
+prisma/migrations/
+*.sql-journal
+
+# =========================
+# General Config & Secrets
+# =========================
+
+# Private keys and certs
+*.pem
+*.key
+*.crt
+
+# Backup files
+*.bak
+*.tmp
+*.old
+
+# Local env overrides
+.env.test.local
+.env.production.local
+
+# =========================
+# Miscellaneous
+# =========================
+
+# Editor folders and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Mac / Windows / Linux system files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# =========================
+# Docker (if used)
+# =========================
+
+# Ignore local docker files if generated dynamically
+docker-compose.override.yml
+.env.docker.local
