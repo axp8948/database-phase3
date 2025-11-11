@@ -126,7 +126,7 @@ function App() {
       <div className="card">
         <h2>Q3: Update Item</h2>
         <button onClick={updateItem}>
-          Update “Frozen Broccoli” → “Organic Fresh Broccoli”
+          Update “Frozen Broccoli” to “Organic Fresh Broccoli”
         </button>
       </div>
 

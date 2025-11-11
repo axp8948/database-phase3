@@ -76,14 +76,14 @@ button:hover {
 /* Result section */
 .result {
   text-align: left;
-  background: #eef2ff;
+  background: #536cbc;
   padding: 0.75rem;
   border-radius: 8px;
   margin-top: 0.5rem;
 }
 
 .item-card {
-  background: #f1f5f9;
+  background: #25235f;
   padding: 10px;
   margin: 10px 0;
   border-radius: 8px;
