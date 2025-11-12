@@ -1,3 +1,7 @@
+// Pranil lama: 1001967696
+// Anmol Pandey: 1002238948
+
+
 import { useState } from "react";
 import "./App.css";
 
@@ -17,11 +21,14 @@ function App() {
   const [updateOldName, setUpdateOldName] = useState("");
   const [updateNewName, setUpdateNewName] = useState("");
   const [updateNewDesc, setUpdateNewDesc] = useState("");
+  const [updateNewPrice, setUpdateNewPrice] = useState("");
 
   // Delete field
   const [deleteName, setDeleteName] = useState("");
 
+  // Message
   const [message, setMessage] = useState("");
+
   const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
   // Search item
@@ -73,14 +80,15 @@ function App() {
     }
   };
 
+  // Update item (name + description + price)
   const updateItem = async () => {
     if (!updateOldName) {
       setMessage("Please enter the current item name.");
       return;
     }
 
-    if (!updateNewName && !updateNewDesc) {
-      setMessage("Please enter a new name or new description to update.");
+    if (!updateNewName && !updateNewDesc && !updateNewPrice) {
+      setMessage("Please enter at least one new value to update.");
       return;
     }
 
@@ -92,14 +100,17 @@ function App() {
           oldName: updateOldName,
           newName: updateNewName,
           newDesc: updateNewDesc,
+          newPrice: updateNewPrice,
         }),
       });
       const data = await res.json();
       setMessage(data.message);
 
+      // clear update fields
       setUpdateOldName("");
       setUpdateNewName("");
       setUpdateNewDesc("");
+      setUpdateNewPrice("");
     } catch (err) {
       console.error(err);
     }
@@ -165,6 +176,12 @@ function App() {
             ))}
           </div>
         )}
+
+        {result && result.length === 0 && (
+          <div className="result">
+            <h4>No item found.</h4>
+          </div>
+        )}
       </div>
 
       {/* Insert */}
@@ -217,6 +234,12 @@ function App() {
           placeholder="New Description (optional)"
           value={updateNewDesc}
           onChange={(e) => setUpdateNewDesc(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="New Price (optional)"
+          value={updateNewPrice}
+          onChange={(e) => setUpdateNewPrice(e.target.value)}
         />
         <button onClick={updateItem}>Update Item</button>
       </div>
