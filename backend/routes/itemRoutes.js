@@ -1,9 +1,13 @@
+// Pranil lama: 1001967696
+// Anmol Pandey: 1002238948
+
+
 import express from "express";
 import db from "../db/connection.js";
 
 const router = express.Router();
 
-//Q1: Get item by ID or Name
+//Get item by ID or Name
 router.get("/item", (req, res) => {
   const { id, name } = req.query;
 
@@ -26,7 +30,7 @@ router.get("/item", (req, res) => {
   });
 });
 
-//Q2: Insert new item (Dynamic)
+// Insert new item 
 router.post("/item", (req, res) => {
   const { iId, Iname, Sprice, Idescription } = req.body;
 
@@ -41,15 +45,15 @@ router.post("/item", (req, res) => {
   });
 });
 
-//Q3: Update any item dynamically (name + description)
+//Update any item dynamically 
 router.put("/item/update", (req, res) => {
-  const { oldName, newName, newDesc } = req.body;
+  const { oldName, newName, newDesc, newPrice } = req.body;
 
   if (!oldName) {
     return res.status(400).json({ message: "Please provide the current item name." });
   }
 
-  if (!newName && !newDesc) {
+  if (!newName && !newDesc && !newPrice) {
     return res.status(400).json({ message: "Please provide at least one field to update." });
   }
 
@@ -62,9 +66,15 @@ router.put("/item/update", (req, res) => {
   }
 
   if (newDesc) {
-    if (newName) query += ", "; // add comma if both are updated
+    if (values.length) query += ", ";
     query += "Idescription = ?";
     values.push(newDesc);
+  }
+
+  if (newPrice) {
+    if (values.length) query += ", ";
+    query += "Sprice = ?";
+    values.push(newPrice);
   }
 
   query += " WHERE Iname = ?";
@@ -80,7 +90,7 @@ router.put("/item/update", (req, res) => {
 });
 
 
-//Q4: Delete any item dynamically
+//Delete any item dynamically
 router.delete("/item/delete", (req, res) => {
   const { Iname } = req.body;
 
